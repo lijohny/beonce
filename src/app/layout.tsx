@@ -5,7 +5,7 @@ import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'BeOnce Living',
+  title: 'BeOnce',
   description: 'A new era of living spaces',
 };
 
