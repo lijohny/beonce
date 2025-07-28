@@ -53,16 +53,18 @@ export default function HomePage({ params }: { params: { slug: string } }) {
   return (
     <div className="flex flex-col">
       <section ref={heroRef} className={cn("relative h-screen w-full animate-raise-up", { 'in-view': heroInView })}>
-        <Image
-          src="https://placehold.co/1600x900"
-          alt="Modern boxy home exterior"
-          fill
-          className="absolute inset-0 z-0 object-cover"
-          data-ai-hint="boxy contemporary home"
-          priority
-        />
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover z-0"
+  >
+    <source src="/video/interorwalking.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
         <div className="absolute inset-0 bg-black/50 z-10" />
-        <div className="container mx-auto lg:px-5 relative z-20 flex flex-col items-center justify-center h-full text-center text-white">
+        <div className="container mx-auto px-5 relative z-20 flex flex-col items-center justify-center h-full text-center text-white">
           <h1 className="text-4xl font-bold tracking-tight font-headline sm:text-5xl md:text-6xl lg:text-7xl">
             A new era of living spaces
           </h1>
@@ -81,7 +83,7 @@ export default function HomePage({ params }: { params: { slug: string } }) {
       </section>
 
       <section ref={aboutRef} id="about" className={cn("py-16 md:py-24 animate-raise-up", { 'in-view': aboutInView })}>
-        <div className="container mx-auto lg:px-5 grid gap-12 md:grid-cols-2 md:items-center">
+        <div className="container mx-auto px-5 grid gap-12 md:grid-cols-2 md:items-center">
             <div className="space-y-4">
                 <h2 className="text-3xl font-bold tracking-tight font-headline sm:text-4xl">Welcome to BeOnce</h2>
                 <p className="text-muted-foreground">
@@ -102,7 +104,7 @@ export default function HomePage({ params }: { params: { slug: string } }) {
       </section>
 
       <section ref={servicesRef} id="services" className={cn("py-16 md:py-24 bg-card animate-raise-up", { 'in-view': servicesInView })}>
-        <div className="container mx-auto lg:px-5">
+        <div className="container mx-auto px-5">
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tight font-headline sm:text-4xl">Our Services</h2>
             <p className="mt-4 text-muted-foreground">
@@ -128,21 +130,21 @@ export default function HomePage({ params }: { params: { slug: string } }) {
       </section>
       
       <section ref={packagesRef} id="packages" className={cn("py-16 md:py-24 animate-raise-up", { 'in-view': packagesInView })}>
-        <div className="container mx-auto lg:px-5">
+        <div className="container mx-auto px-5">
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tight font-headline sm:text-4xl">Our Home Packages</h2>
             <p className="mt-4 text-muted-foreground">
               Choose between our value-packed package home or a fully customized build.
             </p>
           </div>
-          <div className="grid gap-8 mt-12 lg:grid-cols-2">
-            <Card className="flex flex-col border-primary border-2 shadow-xl" style={{ transitionDelay: '0ms' }}>
+          <div className="flex gap-8 mt-12 lg:justify-center">
+            <Card className="flex flex-col  border-primary border-2 shadow-xl" style={{ transitionDelay: '0ms' }}>
               <CardHeader>
                 <CardTitle className="font-headline">The 22 Lakhs Package</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow space-y-4">
                 <p className="text-4xl font-bold font-headline">₹22,00,000</p>
-                <p className="text-muted-foreground">An unbeatable package for a premium 900-1000 sqft contemporary home.</p>
+                <p className="text-muted-foreground">An unbeatable package for a premium 900-1000 sqft <br /> contemporary home.</p>
                 <ul className="space-y-3 pt-4">
                   {packageFeatures.map(feat => (
                     <li key={feat.text} className="flex items-center gap-3">
@@ -153,13 +155,13 @@ export default function HomePage({ params }: { params: { slug: string } }) {
                 </ul>
               </CardContent>
             </Card>
-            <Card className="flex flex-col bg-card" style={{ transitionDelay: '150ms' }}>
+            <Card className="flex flex-col  bg-card" style={{ transitionDelay: '150ms' }}>
               <CardHeader>
                 <CardTitle className="font-headline">Custom Homes</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow space-y-4">
                 <p className="text-4xl font-bold font-headline">₹2400 <span className="text-lg font-normal text-muted-foreground">/ sqft</span></p>
-                <p className="text-muted-foreground">Your vision, your design. We build your dream home to your exact specifications.</p>
+                <p className="text-muted-foreground">Your vision, your design. We build your dream home to <br/> your exact specifications.</p>
                  <ul className="space-y-3 pt-4">
                     {customHomeFeatures.map(feat => (
                       <li key={feat.text} className="flex items-center gap-3">
@@ -175,7 +177,7 @@ export default function HomePage({ params }: { params: { slug: string } }) {
       </section>
 
       <section ref={financingRef} id="financing" className={cn("py-16 md:py-24 bg-card animate-raise-up", { 'in-view': financingInView })}>
-        <div className="container mx-auto lg:px-5">
+        <div className="container mx-auto px-5">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-4">
               <div className="inline-block rounded-lg bg-primary/10 p-3">

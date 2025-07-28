@@ -4,7 +4,7 @@ import Link from 'next/link';
 export function Footer() {
   return (
     <footer className="border-t bg-card">
-      <div className="container mx-auto lg:px-5 py-12">
+      <div className="container px-5 py-12 mx-auto ">
         <div className="grid gap-8 md:grid-cols-3">
           <div className="space-y-4">
             <Logo />
@@ -22,16 +22,16 @@ export function Footer() {
             <div>
               <h4 className="font-headline font-medium mb-4">Legal</h4>
               <ul className="space-y-2">
-                <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Privacy Policy</Link></li>
+                <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Privacy Policy</Link></li> 
                 <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Terms of Service</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-headline font-medium mb-4">Connect</h4>
               <ul className="space-y-2">
-                <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Facebook</Link></li>
-                <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Instagram</Link></li>
-                <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">LinkedIn</Link></li>
+                <li><Link href="https://www.instagram.com/be.once_/" className="text-sm text-muted-foreground hover:text-primary">Facebook</Link></li>
+                <li><Link href="https://www.instagram.com/be.once_/" className="text-sm text-muted-foreground hover:text-primary">Instagram</Link></li>
+                {/* <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">LinkedIn</Link></li> */}
               </ul>
             </div>
           </div>

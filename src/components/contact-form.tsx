@@ -157,7 +157,7 @@ export function ContactForm() {
                   <FormItem>
                     <FormLabel>Phone Number (Optional)</FormLabel>
                     <FormControl>
-                      <Input placeholder="+91 123 456 7890" {...field} />
+                      <Input placeholder="8137844372" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

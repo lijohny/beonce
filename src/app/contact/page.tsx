@@ -10,7 +10,7 @@ export default function ContactPage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="bg-background">
-      <div ref={contactRef} className={cn("container mx-auto py-16 md:py-24 lg:px-5 animate-raise-up", { 'in-view': contactInView })}>
+      <div ref={contactRef} className={cn("container mx-auto py-16 md:py-24 container mx-auto px-5 animate-raise-up", { 'in-view': contactInView })}>
         <div className="text-center max-w-2xl mx-auto">
           <h1 className="text-4xl font-bold tracking-tight font-headline sm:text-5xl">Contact Us</h1>
           <p className="mt-4 text-muted-foreground">
@@ -28,7 +28,7 @@ export default function ContactPage({ params }: { params: { slug: string } }) {
                 </div>
                 <div>
                   <h3 className="font-semibold">Our Office</h3>
-                  <p className="text-muted-foreground">123 Modern Avenue, Buildtown, 54321</p>
+                  <p className="text-muted-foreground">Beonce, Kattakada KSRTC Shopping Complex Building, First Floor, 695572</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -37,7 +37,7 @@ export default function ContactPage({ params }: { params: { slug: string } }) {
                 </div>
                 <div>
                   <h3 className="font-semibold">Email Us</h3>
-                  <p className="text-muted-foreground">hello@beonce.dev</p>
+                  <p className="text-muted-foreground">hai.beonce@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -46,7 +46,7 @@ export default function ContactPage({ params }: { params: { slug: string } }) {
                 </div>
                 <div>
                   <h3 className="font-semibold">Call Us</h3>
-                  <p className="text-muted-foreground">+91 123 456 7890</p>
+                  <p className="text-muted-foreground">8137844372</p>
                 </div>
               </div>
             </div>
