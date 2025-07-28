@@ -1,19 +1,62 @@
- 
-import Contact from '@/components/contact'
-import Wrapper from '@/layouts/Wrapper'
-import { Metadata } from 'next'
-import React from 'react'
+"use client";
 
-export const metadata: Metadata = {
-  title: 'Contact BeOnce',
-  description: 'Nino - Personal Portfolio Next JS Template fresh and clean Design. You can use this portfolio template for: agency, personal portfolio, architect agency, photography studios, sound and music, musician, painter portfolio, artworks, art, artist portfolio, web design works, illustrators, trainer, projects, freelance designer. Just take the best Template of your choice, change the text, add your images and done! we have a strong support team which 24/7 days available to support you.',
-}
+import { ContactForm } from '@/components/contact-form';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import { cn } from '@/lib/utils';
+import { Mail, MapPin, Phone } from 'lucide-react';
 
+export default function ContactPage({ params }: { params: { slug: string } }) {
+  const { ref: contactRef, inView: contactInView } = useScrollAnimation<HTMLDivElement>();
 
-export default function index() {
   return (
-    <Wrapper>
-      <Contact />
-    </Wrapper>
-  )
+    <div className="bg-background">
+      <div ref={contactRef} className={cn("container mx-auto py-16 md:py-24 container mx-auto px-5 animate-raise-up", { 'in-view': contactInView })}>
+        <div className="text-center max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold tracking-tight font-headline sm:text-5xl">Contact Us</h1>
+          <p className="mt-4 text-muted-foreground">
+            Ready to start building your dream home? Get in touch with us today.
+          </p>
+        </div>
+
+        <div className="mt-16 grid lg:grid-cols-5 gap-12">
+          <div className="lg:col-span-2 space-y-8" style={{ transitionDelay: '0ms' }}>
+            <h2 className="text-2xl font-bold font-headline">Get in Touch</h2>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="bg-primary/10 p-3 rounded-full shrink-0">
+                  <MapPin className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Our Office</h3>
+                  <p className="text-muted-foreground">Beonce, Kattakada KSRTC Shopping Complex Building, First Floor, 695572</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="bg-primary/10 p-3 rounded-full shrink-0">
+                  <Mail className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Email Us</h3>
+                  <p className="text-muted-foreground">hai.beonce@gmail.com</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="bg-primary/10 p-3 rounded-full shrink-0">
+                  <Phone className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Call Us</h3>
+                  <p className="text-muted-foreground">8137844372</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="lg:col-span-3" style={{ transitionDelay: '150ms' }}>
+            <ContactForm />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
