@@ -10,7 +10,7 @@ export default function ContactPage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="bg-background">
-      <div ref={contactRef} className={cn("container mx-auto py-16 md:py-24 container mx-auto px-5 animate-raise-up", { 'in-view': contactInView })}>
+      <div className="container mx-auto py-16 md:py-24 px-5">
         <div className="text-center max-w-2xl mx-auto">
           <h1 className="text-4xl font-bold tracking-tight font-headline sm:text-5xl">Contact Us</h1>
           <p className="mt-4 text-muted-foreground">

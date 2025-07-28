@@ -24,7 +24,7 @@ const images = [
 
   return (
     <div className="bg-background">
-      <div ref={galleryRef} className={cn("container mx-auto py-16 md:py-24 container mx-auto px-5 animate-raise-up", { 'in-view': galleryInView })}>
+      <div className="container mx-auto py-16 md:py-24 px-5">
         <div className="text-center max-w-2xl mx-auto">
           <h1 className="text-4xl font-bold tracking-tight font-headline sm:text-5xl">Our Gallery</h1>
           <p className="mt-4 text-muted-foreground">

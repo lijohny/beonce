@@ -137,7 +137,7 @@ export default function HomePage({ params }: { params: { slug: string } }) {
               Choose between our value-packed package home or a fully customized build.
             </p>
           </div>
-          <div className="flex gap-8 mt-12 lg:justify-center">
+          <div className="flex flex-col lg:flex-row gap-8 mt-12 lg:justify-center">
             <Card className="flex flex-col  border-primary border-2 shadow-xl" style={{ transitionDelay: '0ms' }}>
               <CardHeader>
                 <CardTitle className="font-headline">The 22 Lakhs Package</CardTitle>
