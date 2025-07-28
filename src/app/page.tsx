@@ -92,7 +92,7 @@ export default function HomePage({ params }: { params: { slug: string } }) {
             </div>
             <div className="aspect-video overflow-hidden rounded-xl shadow-lg">
                  <Image
-                    src="https://placehold.co/600x400"
+                    src="/image/assets/images/home9.jpg"
                     alt="Interior of a modern home"
                     width={600}
                     height={400}
@@ -193,7 +193,7 @@ export default function HomePage({ params }: { params: { slug: string } }) {
             </div>
             <div className="aspect-video overflow-hidden rounded-xl shadow-lg">
               <Image
-                src="https://placehold.co/600x400"
+                src="/image/assets/images/homloasn.png"
                 alt="Couple reviewing documents"
                 width={600}
                 height={400}
