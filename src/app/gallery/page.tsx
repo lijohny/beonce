@@ -8,18 +8,18 @@ export default function GalleryPage({ params }: { params: { slug: string } }) {
   const { ref: galleryRef, inView: galleryInView } = useScrollAnimation<HTMLDivElement>();
 
 const images = [
-  { src: '/image/assets/images/home1.jpg', alt: 'Modern Boxy Home 1', hint: 'modern architecture' },
-  { src: '/image/assets/images/home2.jpg', alt: 'Minimalist Interior 1', hint: 'minimalist interior' },
-  { src: '/image/assets/images/home3.jpg', alt: 'Contemporary Living Room', hint: 'contemporary design' },
-  { src: '/image/assets/images/home4.jpg', alt: 'Modern Kitchen Design', hint: 'modern kitchen' },
-  { src: '/image/assets/images/home5.jpg', alt: 'Courtyard View', hint: 'courtyard garden' },
-  { src: '/image/assets/images/home6.jpg', alt: 'Exterior Facade', hint: 'boxy architecture' },
-  { src: '/image/assets/images/home7.jpg', alt: 'Bedroom with a View', hint: 'modern bedroom' },
-  { src: '/image/assets/images/home8.jpg', alt: 'Open Plan Living', hint: 'open plan' },
-  { src: '/image/assets/images/home10.jpg', alt: 'Staircase detail', hint: 'architectural detail' },
-  { src: '/image/assets/images/home11.jpg', alt: 'Staircase detail', hint: 'architectural detail' },
-  { src: '/image/assets/images/home12.jpg', alt: 'Staircase detail', hint: 'architectural detail' },
-  { src: '/image/assets/images/home13.jpg', alt: 'Staircase detail', hint: 'architectural detail' },
+  { src: 'https://placehold.co/600x400.png', alt: 'Modern Boxy Home 1', hint: 'modern architecture' },
+  { src: 'https://placehold.co/600x800.png', alt: 'Minimalist Interior 1', hint: 'minimalist interior' },
+  { src: 'https://placehold.co/600x400.png', alt: 'Contemporary Living Room', hint: 'contemporary design' },
+  { src: 'https://placehold.co/600x400.png', alt: 'Modern Kitchen Design', hint: 'modern kitchen' },
+  { src: 'https://placehold.co/600x800.png', alt: 'Courtyard View', hint: 'courtyard garden' },
+  { src: 'https://placehold.co/600x400.png', alt: 'Exterior Facade', hint: 'boxy architecture' },
+  { src: 'https://placehold.co/600x400.png', alt: 'Bedroom with a View', hint: 'modern bedroom' },
+  { src: 'https://placehold.co/600x800.png', alt: 'Open Plan Living', hint: 'open plan' },
+  { src: 'https://placehold.co/600x400.png', alt: 'Staircase detail', hint: 'architectural detail' },
+  { src: 'https://placehold.co/600x400.png', alt: 'Staircase detail', hint: 'architectural detail' },
+  { src: 'https://placehold.co/600x800.png', alt: 'Staircase detail', hint: 'architectural detail' },
+  { src: 'https://placehold.co/600x400.png', alt: 'Staircase detail', hint: 'architectural detail' },
 ];
 
   return (

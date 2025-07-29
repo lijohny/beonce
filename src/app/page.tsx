@@ -185,6 +185,11 @@ export default function HomePage() {
                   ))}
                 </ul>
               </CardContent>
+              <div className="p-6 pt-0">
+                <Button asChild className="w-full">
+                  <Link href="/packages/22-lakhs">View Details <ArrowRight className="ml-2 w-4 h-4" /></Link>
+                </Button>
+              </div>
             </Card>
             <Card className="flex flex-col  bg-card" style={{ transitionDelay: '150ms' }}>
               <CardHeader>
