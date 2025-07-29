@@ -3,6 +3,7 @@ import './globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
+import { WhatsAppButton } from '@/components/whatsapp-button';
 
 export const metadata: Metadata = {
   title: 'BeOnce',
@@ -26,6 +27,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <Toaster />
+        <WhatsAppButton />
       </body>
     </html>
   );

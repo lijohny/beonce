@@ -1,16 +1,19 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Construction, DraftingCompass, Handshake, HomeIcon, Leaf, Paintbrush, Sparkles, CookingPot, ClipboardEdit, CheckCircle2, BadgeCheck, Camera, Star, Gem } from "lucide-react";
+import { ArrowRight, Construction, DraftingCompass, Handshake, HomeIcon, Leaf, Paintbrush, Sparkles, CookingPot, ClipboardEdit, CheckCircle2, BadgeCheck, Camera, Star, Gem, Award, Briefcase } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { OfferPopup } from "@/components/offer-popup";
 
-export default function HomePage({ params }: { params: { slug: string } }) {
+export default function HomePage() {
   const { ref: heroRef, inView: heroInView } = useScrollAnimation<HTMLElement>();
   const { ref: aboutRef, inView: aboutInView } = useScrollAnimation<HTMLElement>();
+  const { ref: experienceRef, inView: experienceInView } = useScrollAnimation<HTMLElement>();
   const { ref: servicesRef, inView: servicesInView } = useScrollAnimation<HTMLElement>();
   const { ref: packagesRef, inView: packagesInView } = useScrollAnimation<HTMLElement>();
   const { ref: financingRef, inView: financingInView } = useScrollAnimation<HTMLElement>();
@@ -49,26 +52,38 @@ export default function HomePage({ params }: { params: { slug: string } }) {
       { icon: <Star className="w-6 h-6 text-primary" />, text: "5-Year Free Service Support" },
       { icon: <CheckCircle2 className="w-6 h-6 text-primary" />, text: "High-Quality Materials" }
   ];
+  
+  const experienceStats = [
+    {
+      icon: <Award className="w-10 h-10 text-primary" />,
+      value: "12+",
+      label: "Years of Experience"
+    },
+    {
+      icon: <Briefcase className="w-10 h-10 text-primary" />,
+      value: "300+",
+      label: "Projects Completed"
+    }
+  ];
 
   return (
     <div className="flex flex-col">
-      <section ref={heroRef} className={cn("relative h-screen w-full animate-raise-up", { 'in-view': heroInView })}>
-  <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="absolute inset-0 w-full h-full object-cover z-0"
-  >
-    <source src="/video/interorwalking.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-        <div className="absolute inset-0 bg-black/50 z-10" />
-        <div className="container mx-auto px-5 relative z-20 flex flex-col items-center justify-center h-full text-center text-white">
+       <OfferPopup />
+       <section ref={heroRef} className={cn("relative h-screen w-full overflow-hidden animate-raise-up", { 'in-view': heroInView })}>
+        <video
+          src="/video/interorwalking.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 z-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60 z-10" />
+        <div className="container mx-auto lg:px-5 relative z-20 flex flex-col items-center justify-center h-full text-center text-white">
           <h1 className="text-4xl font-bold tracking-tight font-headline sm:text-5xl md:text-6xl lg:text-7xl">
             A new era of living spaces
           </h1>
-          <p className="max-w-2xl mt-6 text-lg text-primary-foreground/80">
+          <p className="max-w-2xl mt-6 text-lg text-neutral-200">
             BeOnce crafts contemporary, boxy homes that are stylish, functional, and budget-friendly. Your modern dream home starts here.
           </p>
           <div className="mt-10 flex gap-4">
@@ -103,7 +118,23 @@ export default function HomePage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      <section ref={servicesRef} id="services" className={cn("py-16 md:py-24 bg-card animate-raise-up", { 'in-view': servicesInView })}>
+      <section ref={experienceRef} id="experience" className={cn("py-16 md:py-24 bg-card animate-raise-up", { 'in-view': experienceInView })}>
+        <div className="container mx-auto px-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-center">
+            {experienceStats.map((stat, index) => (
+              <div key={index} className="flex flex-col items-center" style={{ transitionDelay: `${index * 150}ms` }}>
+                <div className="bg-primary/10 p-4 rounded-full w-fit mb-4">
+                  {stat.icon}
+                </div>
+                <p className="text-4xl font-bold font-headline text-primary">{stat.value}</p>
+                <p className="text-muted-foreground mt-2">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section ref={servicesRef} id="services" className={cn("py-16 md:py-24 bg-background animate-raise-up", { 'in-view': servicesInView })}>
         <div className="container mx-auto px-5">
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tight font-headline sm:text-4xl">Our Services</h2>
@@ -113,7 +144,7 @@ export default function HomePage({ params }: { params: { slug: string } }) {
           </div>
           <div className="grid gap-8 mt-12 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, i) => (
-              <Card key={service.title} className="text-center shadow-lg hover:shadow-xl transition-shadow" style={{ transitionDelay: `${i * 150}ms` }}>
+              <Card key={service.title} className="text-center shadow-lg hover:shadow-xl transition-shadow bg-card" style={{ transitionDelay: `${i * 150}ms` }}>
                 <CardHeader>
                   <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit">
                     {service.icon}
