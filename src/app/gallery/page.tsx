@@ -10,7 +10,7 @@ export default function GalleryPage({ params }: { params: { slug: string } }) {
 const images = [
   { src: '/image/assets/images/home1.jpg', alt: 'Modern Boxy Home 1', hint: 'modern architecture' },
   { src: '/image/assets/images/home2.jpg', alt: 'Minimalist Interior 1', hint: 'minimalist interior' },
-  { src: '/image/assets/images/home3.jpg', alt: 'Contemporary Living Room', hint: 'contemporary design' },
+  // { src: '/image/assets/images/home3.jpg', alt: 'Contemporary Living Room', hint: 'contemporary design' },
   { src: '/image/assets/images/home4.jpg', alt: 'Modern Kitchen Design', hint: 'modern kitchen' },
   { src: '/image/assets/images/home5.jpg', alt: 'Courtyard View', hint: 'courtyard garden' },
   { src: '/image/assets/images/home6.jpg', alt: 'Exterior Facade', hint: 'boxy architecture' },
