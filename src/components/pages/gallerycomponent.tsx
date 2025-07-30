@@ -10,7 +10,6 @@ export default function Gallerycomponent({ params }: { params: { slug: string } 
 const images = [
   { src: '/image/assets/images/home1.jpg', alt: 'Modern Boxy Home 1', hint: 'modern architecture' },
   { src: '/image/assets/images/home2.jpg', alt: 'Minimalist Interior 1', hint: 'minimalist interior' },
-  // { src: '/image/assets/images/home3.jpg', alt: 'Contemporary Living Room', hint: 'contemporary design' },
   { src: '/image/assets/images/home4.jpg', alt: 'Modern Kitchen Design', hint: 'modern kitchen' },
   { src: '/image/assets/images/home5.jpg', alt: 'Courtyard View', hint: 'courtyard garden' },
   { src: '/image/assets/images/home6.jpg', alt: 'Exterior Facade', hint: 'boxy architecture' },
@@ -34,13 +33,27 @@ const images = [
         <div className="columns-1 md:columns-3 gap-4 mt-12 space-y-4">
           {images.map((image, index) => (
             <div key={index} className="overflow-hidden rounded-lg break-inside-avoid shadow-md hover:shadow-xl transition-shadow" style={{ transitionDelay: `${index * 100}ms` }}>
-              <Image
+        {/* <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-300 hover:scale-105"
+            placeholder="blur"
+            blurDataURL="/images/placeholder-blur.jpg" // ✅ shared low-res placeholder
+            data-ai-hint={image.hint}
+            priority={index < 2} // ✅ preload top 2 images for faster above-the-fold
+          /> */}
+
+            <Image
                 src={image.src}
                 alt={image.alt}
                 width={600}
                 height={400}
                 className="object-cover w-full h-auto transition-transform duration-300 hover:scale-105"
+                blurDataURL="/images/placeholder-blur.jpg" // ✅ shared low-res placeholder
                 data-ai-hint={image.hint}
+                priority={index < 2} // ✅ preload top 2 images for faster above-the-fold
               />
             </div>
           ))}

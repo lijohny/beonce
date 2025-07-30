@@ -70,14 +70,16 @@ export default function HomePage() {
     <div className="flex flex-col">
        <OfferPopup />
        <section ref={heroRef} className={cn("relative h-screen w-full overflow-hidden animate-raise-up", { 'in-view': heroInView })}>
-        <video
-          src="/video/interorwalking.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 z-0 w-full h-full object-cover"
-        />
+          <video
+            src="/video/interorwalking.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster="/video/interior-fallback.jpg"
+            className="absolute inset-0 z-0 w-full h-full object-cover"
+          />
         <div className="absolute inset-0 bg-black/60 z-10" />
         <div className="container mx-auto lg:px-5 relative z-20 flex flex-col items-center justify-center h-full text-center text-white">
           <h1 className="text-4xl font-bold tracking-tight font-headline sm:text-5xl md:text-6xl lg:text-7xl">
