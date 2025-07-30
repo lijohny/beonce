@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { WhatsAppButton } from '@/components/whatsapp-button';
+import Script from 'next/script'; // ← Import Script
 
 export const metadata: Metadata = {
   title: 'BeOnce',
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     siteName: 'BeOnce',
     images: [
       {
-        url: 'https://beonce.co.in/images/og-image.jpg', 
+        url: 'https://beonce.co.in/images/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'BeOnce Preview Image',
@@ -40,10 +41,31 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"></link>
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body className="font-body antialiased">
+        {/* Google Analytics Scripts */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-0JEBF1WK39"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-0JEBF1WK39');
+          `}
+        </Script>
+
         <Header />
         <main>{children}</main>
         <Footer />
