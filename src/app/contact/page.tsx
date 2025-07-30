@@ -28,7 +28,7 @@ export default function ContactPage({ params }: { params: { slug: string } }) {
                 </div>
                 <div>
                   <h3 className="font-semibold">Our Office</h3>
-                  <p className="text-muted-foreground">Beonce, Kattakada KSRTC Shopping Complex Building, First Floor, 695572</p>
+                  <p className="text-muted-foreground">BeOnce, Kattakada KSRTC Shopping Complex Building, First Floor, 695572</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
