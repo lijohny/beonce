@@ -33,13 +33,15 @@ export function OfferPopup() {
         >
           <X className="h-5 w-5 text-gray-800" />
         </Button>
-        <Image
-          src="/video/ffer-popup.jpg"
-          alt="Special Offer: Premium Home for 22 Lakh"
-          width={800}
-          height={1200}
-          className="w-full h-auto"
-        />
+<Image
+  src="/video/ffer-popup-min.jpg"
+  alt="Special Offer: Premium Home for 22 Lakh"
+  width={800}
+  height={1200}
+  className="w-full h-auto"
+  loading="lazy"
+/>
+
       </div>
     </div>
   );
