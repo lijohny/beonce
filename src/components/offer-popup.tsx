@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
+import Link from "next/link";
 export function OfferPopup() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,14 +33,17 @@ export function OfferPopup() {
         >
           <X className="h-5 w-5 text-gray-800" />
         </Button>
-<Image
-  src="/video/ffer-popup-min.jpg"
-  alt="Special Offer: Premium Home for 22 Lakh"
-  width={800}
-  height={1200}
-  className="w-full h-auto"
-  loading="lazy"
-/>
+         <Link href="/packages/22-lakhs">
+                     <Image
+              src="/video/ffer-popup-min.jpg"
+              alt="Special Offer: Premium Home for 22 Lakh"
+              width={800}
+              height={1200}
+              className="w-full h-auto"
+              loading="lazy"
+            />
+         </Link>
+
 
       </div>
     </div>
