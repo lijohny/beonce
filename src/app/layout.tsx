@@ -8,6 +8,27 @@ import { WhatsAppButton } from '@/components/whatsapp-button';
 export const metadata: Metadata = {
   title: 'BeOnce',
   description: 'A new era of living spaces',
+  openGraph: {
+    title: 'BeOnce',
+    description: 'A new era of living spaces',
+    url: 'https://beonce.co.in/',
+    siteName: 'BeOnce',
+    images: [
+      {
+        url: 'https://beonce.co.in/images/og-image.jpg', 
+        width: 1200,
+        height: 630,
+        alt: 'BeOnce Preview Image',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'BeOnce',
+    description: 'A new era of living spaces',
+    images: ['https://beonce.co.in/images/og-image.jpg'],
+  },
 };
 
 export default function RootLayout({
