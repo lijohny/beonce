@@ -29,7 +29,7 @@ export function Header() {
       href={href}
       className={cn(
         'text-sm font-medium transition-colors hover:text-primary',
-        pathname === href ? 'text-primary' : 'text-foreground/60'
+        pathname === href ? 'text-primary' : 'text-foreground/80'
       )}
       onClick={() => setIsMenuOpen(false)}
     >
@@ -38,7 +38,7 @@ export function Header() {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/60 dark:bg-background/95 dark:supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-5 flex h-16 items-center justify-between gap-4">
         <Logo />
         
@@ -77,7 +77,7 @@ export function Header() {
                         href={link.href}
                         className={cn(
                           'text-lg font-medium transition-colors hover:text-primary',
-                          pathname === link.href ? 'text-primary' : 'text-foreground/80'
+                          pathname === link.href ? 'text-primary' : 'text-foreground/90'
                         )}
                         onClick={() => setIsMenuOpen(false)}
                       >

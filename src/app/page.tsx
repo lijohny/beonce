@@ -12,13 +12,14 @@ import { OfferPopup } from "@/components/offer-popup";
 import { ServicesTicker } from "@/components/services-ticker";
 import { BlogTicker } from "@/components/blog-ticker";
 import { Counter } from "@/components/counter";
+import { EmiSection } from "@/components/emi-section";
 
 export default function HomePage() {
   const { ref: heroRef, inView: heroInView } = useScrollAnimation<HTMLElement>();
   const { ref: aboutRef, inView: aboutInView } = useScrollAnimation<HTMLElement>();
   const { ref: featuredPackageRef, inView: featuredPackageInView } = useScrollAnimation<HTMLElement>();
   const { ref: experienceRef, inView: experienceInView } = useScrollAnimation<HTMLElement>();
-  const { ref: servicesRef, inView: servicesInView } = useScrollAnimation<HTMLElement>();
+  const { ref: tickersRef, inView: tickersInView } = useScrollAnimation<HTMLElement>();
   const { ref: packagesRef, inView: packagesInView } = useScrollAnimation<HTMLElement>();
   const { ref: financingRef, inView: financingInView } = useScrollAnimation<HTMLElement>();
 
@@ -112,6 +113,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* New EMI Section */}
+      <EmiSection />
+
       {/* Featured 22 Lakhs Package - Redirection Section */}
       <section ref={featuredPackageRef} id="featured-package" className={cn("py-16 md:py-24 bg-primary/5 animate-raise-up", { 'in-view': featuredPackageInView })}>
         <div className="container mx-auto px-5">
@@ -150,11 +154,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Seamless Services Slider */}
-      <ServicesTicker />
-
-      {/* Seamless Blog Slider */}
-      <BlogTicker />
+      {/* Tickers Section */}
+      <div ref={tickersRef} className={cn("animate-raise-up", { 'in-view': tickersInView })}>
+        <ServicesTicker />
+        <BlogTicker />
+      </div>
 
       <section ref={experienceRef} id="experience" className={cn("py-16 md:py-24 bg-card animate-raise-up", { 'in-view': experienceInView })}>
         <div className="container mx-auto px-5">

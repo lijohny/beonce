@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from '@/components/layout/header';
@@ -6,6 +5,7 @@ import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { WhatsAppButton } from '@/components/whatsapp-button';
 import { ThemeProvider } from '@/components/theme-provider';
+import { EmiMarquee } from '@/components/emi-marquee';
 
 export const metadata: Metadata = {
   title: 'BeOnce',
@@ -31,6 +31,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <EmiMarquee />
           <Header />
           <main>{children}</main>
           <Footer />
