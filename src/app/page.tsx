@@ -5,36 +5,22 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Construction, DraftingCompass, Handshake, HomeIcon, Leaf, Paintbrush, Sparkles, CookingPot, ClipboardEdit, CheckCircle2, BadgeCheck, Camera, Star, Gem, Award, Briefcase } from "lucide-react";
+import { ArrowRight, HomeIcon, Leaf, Sparkles, CookingPot, ClipboardEdit, CheckCircle2, BadgeCheck, Camera, Star, Gem, Award, Briefcase, Handshake } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { OfferPopup } from "@/components/offer-popup";
+import { ServicesTicker } from "@/components/services-ticker";
+import { BlogTicker } from "@/components/blog-ticker";
+import { Counter } from "@/components/counter";
 
 export default function HomePage() {
   const { ref: heroRef, inView: heroInView } = useScrollAnimation<HTMLElement>();
   const { ref: aboutRef, inView: aboutInView } = useScrollAnimation<HTMLElement>();
+  const { ref: featuredPackageRef, inView: featuredPackageInView } = useScrollAnimation<HTMLElement>();
   const { ref: experienceRef, inView: experienceInView } = useScrollAnimation<HTMLElement>();
   const { ref: servicesRef, inView: servicesInView } = useScrollAnimation<HTMLElement>();
   const { ref: packagesRef, inView: packagesInView } = useScrollAnimation<HTMLElement>();
   const { ref: financingRef, inView: financingInView } = useScrollAnimation<HTMLElement>();
-
-  const services = [
-    {
-      icon: <DraftingCompass className="w-8 h-8 text-primary" />,
-      title: "Discussion",
-      description: "Meticulous planning to lay the perfect foundation for your dream home, ensuring every detail aligns with your vision."
-    },
-    {
-      icon: <Paintbrush className="w-8 h-8 text-primary" />,
-      title: "Design",
-      description: "Innovative and contemporary design solutions that blend aesthetics with functionality for a modern living experience."
-    },
-    {
-      icon: <Construction className="w-8 h-8 text-primary" />,
-      title: "Develop",
-      description: "High-quality construction and development, bringing your boxy, budget-friendly modern home to life with precision."
-    }
-  ];
 
   const packageFeatures = [
     { icon: <HomeIcon className="w-6 h-6 text-primary" />, text: "900-1000 sqft Home" },
@@ -56,12 +42,14 @@ export default function HomePage() {
   const experienceStats = [
     {
       icon: <Award className="w-10 h-10 text-primary" />,
-      value: "12+",
+      target: 12,
+      suffix: "+",
       label: "Years of Experience"
     },
     {
       icon: <Briefcase className="w-10 h-10 text-primary" />,
-      value: "300+",
+      target: 300,
+      suffix: "+",
       label: "Projects Completed"
     }
   ];
@@ -70,16 +58,14 @@ export default function HomePage() {
     <div className="flex flex-col">
        <OfferPopup />
        <section ref={heroRef} className={cn("relative h-screen w-full overflow-hidden animate-raise-up", { 'in-view': heroInView })}>
-          <video
-            src="/video/interorwalking.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            poster="/video/interior-fallback.jpg"
-            className="absolute inset-0 z-0 w-full h-full object-cover"
-          />
+        <video
+          src="/video/interorwalking.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 z-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-black/60 z-10" />
         <div className="container mx-auto lg:px-5 relative z-20 flex flex-col items-center justify-center h-full text-center text-white">
           <h1 className="text-4xl font-bold tracking-tight font-headline sm:text-5xl md:text-6xl lg:text-7xl">
@@ -99,13 +85,19 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Welcome Section */}
       <section ref={aboutRef} id="about" className={cn("py-16 md:py-24 animate-raise-up", { 'in-view': aboutInView })}>
         <div className="container mx-auto px-5 grid gap-12 md:grid-cols-2 md:items-center">
             <div className="space-y-4">
                 <h2 className="text-3xl font-bold tracking-tight font-headline sm:text-4xl">Welcome to BeOnce</h2>
                 <p className="text-muted-foreground">
-                    At the forefront of a new generation of home building, BeOnce is dedicated to creating contemporary, "boxy type" homes that fit your lifestyle and your budget. We believe in minimalist aesthetics, functional design, and delivering exceptional value without compromising on quality. We're not just building houses; we're creating the future of living spaces.
+                    At the forefront of a new generation of home building, BeOnce is dedicated to creating contemporary, "boxy type" homes that fit your lifestyle and your budget. We believe in minimalist aesthetics, functional design, and delivering exceptional value without compromising on quality.
                 </p>
+                <div className="pt-4">
+                  <Button variant="outline" asChild>
+                    <Link href="/best-construction-company-kerala">Learn More About Us</Link>
+                  </Button>
+                </div>
             </div>
             <div className="aspect-video overflow-hidden rounded-xl shadow-lg">
                  <Image
@@ -120,6 +112,50 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Featured 22 Lakhs Package - Redirection Section */}
+      <section ref={featuredPackageRef} id="featured-package" className={cn("py-16 md:py-24 bg-primary/5 animate-raise-up", { 'in-view': featuredPackageInView })}>
+        <div className="container mx-auto px-5">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1 aspect-[4/3] overflow-hidden rounded-xl shadow-xl">
+              <Image
+                src="/image/assets/images/package-home.jpg"
+                alt="22 Lakhs Package Home Design"
+                width={800}
+                height={600}
+                className="object-cover w-full h-full"
+                data-ai-hint="modern box house"
+              />
+            </div>
+            <div className="order-1 md:order-2 space-y-6">
+              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
+                Launching Offer
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight font-headline sm:text-4xl">The 22 Lakhs Home Package</h2>
+              <p className="text-muted-foreground text-lg">
+                Our signature all-inclusive package for contemporary 900-1000 sqft homes. Perfect for plots of **2 cents or more**. We handle everything from basement to key handover.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {packageFeatures.map((feat, i) => (
+                  <div key={i} className="flex items-center gap-2 text-sm">
+                    {feat.icon}
+                    <span>{feat.text}</span>
+                  </div>
+                ))}
+              </div>
+              <Button size="lg" asChild className="mt-4">
+                <Link href="/packages/22-lakhs">View Full Details <ArrowRight className="ml-2 w-4 h-4" /></Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Seamless Services Slider */}
+      <ServicesTicker />
+
+      {/* Seamless Blog Slider */}
+      <BlogTicker />
+
       <section ref={experienceRef} id="experience" className={cn("py-16 md:py-24 bg-card animate-raise-up", { 'in-view': experienceInView })}>
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-center">
@@ -128,7 +164,9 @@ export default function HomePage() {
                 <div className="bg-primary/10 p-4 rounded-full w-fit mb-4">
                   {stat.icon}
                 </div>
-                <p className="text-4xl font-bold font-headline text-primary">{stat.value}</p>
+                <div className="text-4xl font-bold font-headline text-primary">
+                  <Counter target={stat.target} suffix={stat.suffix} trigger={experienceInView} />
+                </div>
                 <p className="text-muted-foreground mt-2">{stat.label}</p>
               </div>
             ))}
@@ -136,32 +174,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section ref={servicesRef} id="services" className={cn("py-16 md:py-24 bg-background animate-raise-up", { 'in-view': servicesInView })}>
-        <div className="container mx-auto px-5">
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tight font-headline sm:text-4xl">Our Services</h2>
-            <p className="mt-4 text-muted-foreground">
-              From the initial sketch to the final brick, we offer a complete suite of services to build your perfect home.
-            </p>
-          </div>
-          <div className="grid gap-8 mt-12 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, i) => (
-              <Card key={service.title} className="text-center shadow-lg hover:shadow-xl transition-shadow bg-card" style={{ transitionDelay: `${i * 150}ms` }}>
-                <CardHeader>
-                  <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit">
-                    {service.icon}
-                  </div>
-                  <CardTitle className="font-headline mt-4">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{service.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-      
       <section ref={packagesRef} id="packages" className={cn("py-16 md:py-24 animate-raise-up", { 'in-view': packagesInView })}>
         <div className="container mx-auto px-5">
           <div className="text-center max-w-2xl mx-auto">
@@ -171,7 +183,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="flex flex-col lg:flex-row gap-8 mt-12 lg:justify-center">
-            <Card className="flex flex-col  border-primary border-2 shadow-xl" style={{ transitionDelay: '0ms' }}>
+            <Card className="flex flex-col border-primary border-2 shadow-xl" style={{ transitionDelay: '0ms' }}>
               <CardHeader>
                 <CardTitle className="font-headline">The 22 Lakhs Package</CardTitle>
               </CardHeader>
@@ -193,7 +205,7 @@ export default function HomePage() {
                 </Button>
               </div>
             </Card>
-            <Card className="flex flex-col  bg-card" style={{ transitionDelay: '150ms' }}>
+            <Card className="flex flex-col bg-card" style={{ transitionDelay: '150ms' }}>
               <CardHeader>
                 <CardTitle className="font-headline">Custom Homes</CardTitle>
               </CardHeader>
@@ -223,7 +235,7 @@ export default function HomePage() {
               </div>
               <h2 className="text-3xl font-bold tracking-tight font-headline sm:text-4xl">Flexible Financing Solutions</h2>
               <p className="text-muted-foreground">
-                Don't let financial hurdles stop you. Our dedicated team specializes in providing loan assistance for individuals with CIBIL issues or non-traditional income proof. We're here to help you secure the financing for your BeOnce home.
+                Don't let financial hurdles stop you. Our dedicated team specializes in providing loan assistance for individuals with CIBIL issues or non-traditional income proof.
               </p>
               <Button asChild>
                 <Link href="/contact">Learn More <ArrowRight className="ml-2 w-4 h-4" /></Link>
