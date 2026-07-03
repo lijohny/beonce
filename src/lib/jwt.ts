@@ -1,0 +1,22 @@
+import { SignJWT, jwtVerify } from "jose";
+
+const secret = new TextEncoder().encode(process.env.JWT_SECRET!);
+
+export interface JwtPayload {
+  userId: number;
+  mobile: string;
+  role: string;
+}
+
+export async function signToken(payload: JwtPayload): Promise<string> {
+  return new SignJWT({ ...payload })
+    .setProtectedHeader({ alg: "HS256" })
+    .setExpirationTime(process.env.JWT_EXPIRES_IN || "7d")
+    .setIssuedAt()
+    .sign(secret);
+}
+
+export async function verifyToken(token: string): Promise<JwtPayload> {
+  const { payload } = await jwtVerify(token, secret);
+  return payload as unknown as JwtPayload;
+}
