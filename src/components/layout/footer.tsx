@@ -35,7 +35,7 @@ export function Footer() {
               <h4 className="font-headline font-medium mb-4">Connect</h4>
               <ul className="space-y-2">
                 <li><Link href="https://share.google/Woiw2fSGy73TuVFXS" target="_blank" className="text-sm text-muted-foreground hover:text-primary">Google Business</Link></li>
-                <li><Link href="https://www.instagram.com/be.once_/" target="_blank" className="text-sm text-muted-foreground hover:text-primary">Instagram</Link></li>
+                <li><Link href="https://www.instagram.com/beonce_construction/" target="_blank" className="text-sm text-muted-foreground hover:text-primary">Instagram</Link></li>
                 <li><Link href="https://www.facebook.com/beonceconstruction" target="_blank" className="text-sm text-muted-foreground hover:text-primary">Facebook</Link></li>
               </ul>
               <div className="mt-6 pt-6 border-t">

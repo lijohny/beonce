@@ -19,7 +19,7 @@ export default function HomePage() {
   const { ref: aboutRef, inView: aboutInView } = useScrollAnimation<HTMLElement>();
   const { ref: featuredPackageRef, inView: featuredPackageInView } = useScrollAnimation<HTMLElement>();
   const { ref: experienceRef, inView: experienceInView } = useScrollAnimation<HTMLElement>();
-  const { ref: tickersRef, inView: tickersInView } = useScrollAnimation<HTMLElement>();
+  const { ref: tickersRef, inView: tickersInView } = useScrollAnimation<HTMLDivElement>();
   const { ref: packagesRef, inView: packagesInView } = useScrollAnimation<HTMLElement>();
   const { ref: financingRef, inView: financingInView } = useScrollAnimation<HTMLElement>();
 
@@ -57,7 +57,7 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col">
-       <OfferPopup />
+       {/* <OfferPopup /> */}
        <section ref={heroRef} className={cn("relative h-screen w-full overflow-hidden animate-raise-up", { 'in-view': heroInView })}>
         <video
           src="/video/interorwalking.mp4"
