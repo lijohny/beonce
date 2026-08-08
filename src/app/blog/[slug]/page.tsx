@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Clock, User, Calendar, ArrowLeft, Share2 } from 'lucide-react';
-import imageData from '@/app/lib/placeholder-images.json';
+// import imageData from '@/app/lib/placeholder-images.json';
+
 
 // This is a robust SEO-boosted data structure for 20+ blog articles
 const BLOG_CONTENT: Record<string, { title: string; category: string; content: string }> = {
@@ -83,7 +84,30 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = BLOG_CONTENT[params.slug];
-  const img = imageData.blogs.find(b => b.slug === params.slug);
+// const img = imageData.blogs.find(b => b.slug === params.slug);
+
+const blogImages: Record<string, string> = {
+  "house-construction-cost-kerala": "/image/assets/bllog_thumbnail/blog-1.png",
+  "budget-planning-home-construction": "/image/assets/bllog_thumbnail/blog-2.png",
+  "building-3bhk-3cent-plot": "/image/assets/bllog_thumbnail/blog-3.png",
+  "best-time-to-start-house-construction": "/image/assets/bllog_thumbnail/blog-4.png",
+  "modern-house-design-trends-in-kerala": "/image/assets/bllog_thumbnail/blog-5.png",
+  "construction-timeline-for-building-a-house": "/image/assets/bllog_thumbnail/blog-6.png",
+  "how-to-choose-the-best-construction-company": "/image/assets/bllog_thumbnail/blog-7.png",
+  "common-house-construction-mistakes": "/image/assets/bllog_thumbnail/blog-8.png",
+  "transparent-pricing-in-kerala-construction": "/image/assets/bllog_thumbnail/blog-9.png",
+  "luxury-villa-construction-guide": "/image/assets/bllog_thumbnail/blog-10.png",
+  "building-permits-approvals-kerala": "/image/assets/bllog_thumbnail/blog-11.png",
+  "nri-home-construction-management": "/image/assets/bllog_thumbnail/blog-12.png",
+  "foundation-types-for-kerala-soil": "/image/assets/bllog_thumbnail/blog-13.png",
+  "interior-design-for-small-kerala-homes": "/image/assets/bllog_thumbnail/blog-14.png",
+  "vastu-shastra-for-modern-boxy-homes": "/image/assets/bllog_thumbnail/blog-15.png",
+  "land-selection-tips-for-home-building": "/image/assets/bllog_thumbnail/blog-16.png",
+  "why-soil-testing-is-mandatory": "/image/assets/bllog_thumbnail/blog-17.png",
+  "smart-home-features-for-new-villas": "/image/assets/bllog_thumbnail/blog-18.png",
+  "roofing-solutions-for-tropical-climate": "/image/assets/bllog_thumbnail/blog-19.png",
+  "kitchen-renovation-trends-in-kerala": "/image/assets/bllog_thumbnail/blog-20.png",
+};
 
   if (!post) {
     // Fallback for demo purposes if content isn't fully defined in the map
@@ -119,14 +143,17 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       {/* Main Image */}
       <div className="container mx-auto px-5 max-w-4xl -mt-10 mb-12">
         <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
-          <Image
-            src={img?.src || 'https://picsum.photos/seed/blog-detail/1200/800'}
-            alt={img?.alt || post.title}
-            fill
-            className="object-cover"
-            data-ai-hint={img?.hint || 'construction'}
-          />
-        </div>
+<Image
+  src={
+    blogImages[params.slug] ??
+    "/image/assets/bllog_thumbnail/blog-1.png"
+  }
+  alt={post.title}
+  fill
+  className="object-cover"
+  priority
+/>
+  </div>
       </div>
 
       {/* Content */}
