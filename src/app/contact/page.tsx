@@ -28,7 +28,7 @@ export default function ContactPage({ params }: { params: { slug: string } }) {
                 </div>
                 <div>
                   <h3 className="font-semibold">Our Office</h3>
-                  <p className="text-muted-foreground">Beonce Construction, Anappara, Vellarada, Kerala 695505</p>
+                  <p className="text-muted-foreground">""</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
